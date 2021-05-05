@@ -1,0 +1,145 @@
+
+
+
+/*===========================
+      10.CONTACT  css 
+===========================*/
+
+
+.contact-area{}
+
+.contact-map{
+    & iframe{
+        width: 100%;
+        height: 550px;
+        
+        @media #{$xs}{
+            height: 350px;
+        }
+    }
+}
+
+.contact-area{}
+
+
+.single-contact-info{
+    & .contact-info-icon{
+        & i{
+            width: 50px;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+            font-size: 24px;
+            color: $white;
+            border-radius: 50%;
+        }
+    }
+    & .contact-info-content{
+        padding-left: 20px;
+        
+        & .text{
+            color: $black;
+        }
+    }
+    
+    &.contact-color-1{
+        & .contact-info-icon{
+            & i{
+                background-color: $black;
+            }
+        }
+    }
+    &.contact-color-2{
+        & .contact-info-icon{
+            & i{
+                background-color: #f23559;
+            }
+        }
+    }
+    &.contact-color-3{
+        & .contact-info-icon{
+            & i{
+                background-color: #4bb3f9;
+            }
+        }
+    }
+}
+
+
+
+.contact-wrapper-form{
+    
+    & .contact-title{
+        font-size: 32px;
+        font-weight: 700;
+        font-family: $font-2;
+        color: #000;
+        
+        @media #{$xs}{
+            font-size: 26px;
+        }
+        
+        & i{
+            color: $theme-color;
+            margin-right: 8px;
+        }
+        
+        & span{
+            font-weight: 400;
+        }
+    }
+}
+
+
+
+.form-message{
+    &.error,
+    &.success{
+        font-size: 16px;
+        color: $black;
+        padding: 10px 15px;
+        margin-top: 15px;
+        background-color: $gray;
+        margin-left: 15px;
+    }
+    &.error{
+        color: #fc3832;
+    }
+}
+
+.contact-form{
+    & label{
+        margin-bottom: 25px;
+        display: block;
+        font-size: 18px;
+        color: $black;
+    }
+    & input,
+    & textarea{
+        width: 100%;
+        border-radius: 7px;
+        background-color: $white;
+        padding: 0 30px;
+        height: 65px;
+        border: 1px solid $border-color;
+        color: $black;
+        font-size: 18px;
+    }
+    
+    & textarea{
+        padding-top: 10px;
+        height: 270px;
+        resize: none;
+    }
+    
+    & .main-btn{
+        border-radius: 5px;
+    }
+}
+
+
+
+
+
+
+

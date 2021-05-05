@@ -1,0 +1,80 @@
+
+
+
+/*===========================
+         09.BL0G css 
+===========================*/
+
+
+.blag-area{}
+
+.single-blog{
+    & .blog-image{
+        & a{
+            display: block;
+            
+            & img{
+                width: 100%;
+            }
+        }
+    }
+    & .blog-content{
+        padding-top: 25px;
+        
+        & .blog-title{
+            & a{
+                font-size: 24px;
+                font-weight: 600;
+                color: $black;
+                @include transition(0.3s);
+                
+                @media #{$lg}{
+                    font-size: 20px;
+                }
+                @media #{$xs}{
+                    font-size: 20px;
+                }
+                
+                &:hover{
+                    color: $theme-color;
+                }
+            }
+        }
+        & .blog-author{
+            padding-top: 20px;
+            
+            & .author-image{
+                & img{
+                    width: 65px;
+                    border-radius: 50%;
+                }
+            }
+            & .author-content{
+                padding-left: 20px;
+                
+                & .sub-title{
+                    font-size: 14px;
+                    color: $theme-color;
+                    font-weight: 400;
+                }
+                & .text{
+                    font-size: 16px;
+                    font-weight: 600;
+                    margin-top: 5px;
+                }
+            }
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+

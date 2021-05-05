@@ -1,0 +1,125 @@
+
+
+
+/*===========================
+       11.FOOTER css 
+===========================*/
+
+.footer-area{}
+
+
+.footer-about{
+    & .text{
+        padding-top: 25px;
+        font-size: 16px;
+    }
+}
+
+.footer-title{
+    & .title{
+        font-size: 18px;
+        text-transform: uppercase;
+        font-weight: 900;
+        color: $black;
+    }
+}
+
+.footer-link{
+    
+    & ul{
+        & li{
+            margin-top: 25px;
+            
+            & a{
+                font-size: 16px;
+                color: $body-color;
+                @include transition(0.3s);
+                
+                &:hover{
+                    color: $black;
+                }
+            }
+        }
+    }
+}
+
+.footer-contact{
+    
+    .text{
+        font-size: 16px;
+        padding-top: 15px;
+    }
+    
+    & .social{
+        & li{
+            display: inline-block;
+            margin-right: 26px;
+            
+            &:last-child{
+                margin-right: 0;
+            }
+            
+            & a{
+                font-size: 26px;
+                color: $body-color;
+                @include transition(0.3s);
+                
+                &:hover{
+                    color: $theme-color;
+                }
+            }            
+        }
+    }
+}
+
+
+.footer-copyright{
+    padding: 25px;
+    border-top: 1px solid $border-color;
+    
+    & .text{
+        font-size: 16px;
+        
+        & a{
+            color: $theme-color;
+        }
+    }
+}
+
+
+/*===== BACK TO TOP =====*/
+
+.back-to-top{
+    font-size: 20px;
+    color: $white;
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    width: 45px;
+    height: 45px;
+    line-height: 45px;
+    border-radius: 50%;
+    background-color: $theme-color;
+    text-align: center;
+    z-index: 99;
+    @include transition(0.3s);
+    display: none;
+    
+    &:hover{
+        color: $white;
+        background-color: $theme-color;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

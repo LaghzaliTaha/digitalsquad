@@ -1,0 +1,42 @@
+
+
+
+/*===========================
+        08.BRAND css 
+===========================*/
+
+.brand-area{}
+
+.brand-wrapper{
+    border-top: 1px solid $border-color;
+    
+    & .single-brand{
+        float: left;
+        width: 20%;
+        text-align: center;
+        
+        @media #{$xs} {
+            width: 50%;
+        }
+        
+        & img{
+            
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

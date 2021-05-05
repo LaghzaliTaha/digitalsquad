@@ -1,0 +1,142 @@
+
+
+
+/*===========================
+       04.GALLERY css 
+===========================*/
+
+.single-gallery{
+    position: relative;
+    & .gallery-image{
+        & img{
+            width: 100%;
+        }
+    }
+    & .gallery-icon{
+        & a{
+            background-color: $theme-color;
+            width: 120px;
+            height: 120px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            @include transform(translate(-50%, -50%) scale(0));
+            @include transition(0.3s);
+            
+            @media #{$md} {
+                width: 80px;
+                height: 80px;
+            }
+            
+            & span{
+                width: 40px;
+                height: 40px;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                @include transform(translate(-50%, -50%));
+                
+                @media #{$md} {
+                    width: 30px;
+                    height: 30px;
+                }
+                
+                &::before,
+                &::after{
+                    position: absolute;
+                    content: '';
+                    width: 2px;
+                    height: 100%;
+                    background-color: $white;
+                    top: 0;
+                    left: 50%;
+                    @include transform(translateX(-50%));
+                }
+                
+                &::after{
+                    height: 2px;
+                    width: 100%;
+                    top: 50%;
+                    left: 0;
+                    @include transform(translateY(-50%));
+                }
+            }
+        }
+    }
+    
+    &:hover{
+        & .gallery-icon{
+            & a{
+                @include transform(translate(-50%, -50%) scale(1));
+            }
+        }
+    }
+}
+
+
+/*===== Project Masonry =====*/
+
+.project-masonry-area{
+    
+}
+
+.project-menu{
+    & ul{
+        & li{
+            display: inline-block;
+            font-size: 16px;
+            color: $body-color;
+            margin-left: 50px;
+            cursor: pointer;
+            position: relative;
+            padding-bottom: 3px;
+            margin-top: 10px;
+            
+            @media #{$xs}{
+                margin: 10px 15px 0;
+            }
+            
+            &:first-child{
+                margin-left: 0;
+                
+                @media #{$xs}{
+                    margin: 10px 15px 0;
+                }
+            }
+            
+            &::before{
+                position: absolute;
+                content: '';
+                width: 0;
+                height: 2px;
+                background-color: $body-color;
+                bottom: 0;
+                left: 0;
+                @include transition(0.3s);
+            }
+            
+            &:hover,
+            &.active{
+                &::before{
+                    width: 100%;
+                }
+            }
+        }
+    }
+}
+
+
+.gallery-masonry{
+    border-radius: 7px;
+    overflow: hidden;
+}
+
+
+
+
+
+
+
+
+
+

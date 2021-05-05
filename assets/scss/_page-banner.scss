@@ -1,0 +1,60 @@
+
+
+
+/*===========================
+      12.PAGE BANNER css 
+===========================*/
+
+.page-banner{
+    padding-top: 235px;
+    padding-bottom: 135px;
+    
+    @media #{$xs} {
+        padding-top: 175px;
+        padding-bottom: 90px;
+    }
+}
+
+
+.page-banner-content{
+    & .page-title{
+        font-size: 60px;
+        font-weight: 400;
+        color: #000;
+        
+        @media #{$lg} {
+            font-size: 48px;
+        }
+        @media #{$xs} {
+            font-size: 28px;
+        }
+        @media #{$sm} {
+            font-size: 34px;
+        }
+        
+        & b{
+            font-weight: 700;
+        }
+        & span{
+            font-weight: 700;
+            color: $theme-color;
+            display: contents;
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

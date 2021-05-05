@@ -1,0 +1,204 @@
+
+
+
+/*===========================
+        03.ABOUT css 
+===========================*/
+
+.about-area{}
+
+.about-title{
+    & .welcome{
+        font-size: 18px;
+        font-weight: 400;
+        text-transform: uppercase;
+        letter-spacing: 5px;
+        color: $theme-color;
+        font-family: $font-1;
+        
+        @media #{$xs} {
+            font-size: 16px;
+        }
+    }
+    & .title{
+        padding-top: 10px;
+        font-weight: 400;
+        font-size: 32px;
+        
+        @media #{$xs} {
+            font-size: 24px;
+        }
+        
+        & span{
+            font-weight: 700;
+        }
+    }
+}
+
+.single-counter{
+    & .counter-shape{
+        width: 55px;
+        
+        & .shape-1,
+        & .shape-2{
+            width: 14px;
+            height: 70px;
+            position: relative;
+            @include transform(rotate(25deg));
+            left: 12px;
+            
+            @media #{$sm}{
+                width: 10px;
+            }
+            
+            &::before,
+            &::after{
+                position: absolute;
+                content: '';
+                width: 0;
+                height: 0;
+                top: -1px;
+                right: -1px;
+                border-top: 12px solid $white;
+                border-left: 16px solid transparent;
+            }
+            &::after{
+                border-top: 0;
+                border-bottom: 6px solid $white;
+                top: auto;
+                bottom: -1px;
+            }
+            
+        }
+        
+        & .shape-1{
+            opacity: 0.5;
+            left: 15px;
+            bottom: 1px;
+        }
+    }
+    
+    & .counter-content{
+        padding-left: 10px;
+        
+        & .counter-count{
+            font-size: 48px;
+            font-weight: 700;
+            line-height: 50px;
+            color: $black;
+            font-family: $font-2;
+            
+            @media #{$sm}{
+                font-size: 32px;
+            }
+        }
+        & .text{
+            font-family: $font-2;
+            font-weight: 500;
+        }
+
+    }
+    
+    &.counter-color-1{
+        & .counter-shape{
+            & .shape-1,
+            & .shape-2{
+                background: -webkit-linear-gradient(left, rgba(28,190,153,1) 0%, rgba(5,222,125,1) 100%);
+                background: -o-linear-gradient(left, rgba(28,190,153,1) 0%, rgba(5,222,125,1) 100%);
+                background: linear-gradient(to right, rgba(28,190,153,1) 0%, rgba(5,222,125,1) 100%);
+            }
+        }
+    }
+    
+    &.counter-color-2{
+        & .counter-shape{
+            & .shape-1,
+            & .shape-2{
+                background: -webkit-linear-gradient(left, rgba(62,44,234,1) 0%, rgba(75,179,249,1) 100%);
+                background: -o-linear-gradient(left, rgba(62,44,234,1) 0%, rgba(75,179,249,1) 100%);
+                background: linear-gradient(to right, rgba(62,44,234,1) 0%, rgba(75,179,249,1) 100%);
+            }
+        }
+    }
+    
+    &.counter-color-3{
+        & .counter-shape{
+            & .shape-1,
+            & .shape-2{
+                background: -webkit-linear-gradient(left, rgba(241,72,54,1) 0%, rgba(255,147,135,1) 100%);
+                background: -o-linear-gradient(left, rgba(241,72,54,1) 0%, rgba(255,147,135,1) 100%);
+                background: linear-gradient(to right, rgba(241,72,54,1) 0%, rgba(255,147,135,1) 100%);
+            }
+        }
+    }
+    
+    &.counter-color-4{
+        & .counter-shape{
+            & .shape-1,
+            & .shape-2{
+                background-color: #f23559;
+            }
+        }
+    }
+    
+    &.counter-color-5{
+        & .counter-shape{
+            & .shape-1,
+            & .shape-2{
+                background-color: #164aa9;
+            }
+        }
+    }
+}
+
+
+/*===== ABOUT 2 =====*/
+
+.about-area-2{}
+
+
+.about-content-2{
+    & .about-line{
+        padding-top: 10px;
+        
+        & li{
+            height: 5px;
+            background-color: #fde4e1;
+            display: inline-block;
+            border-radius: 50px;
+            margin-right: 3px;
+                        
+            &:nth-of-type(1){
+                width: 40px;
+            }
+            &:nth-of-type(2){
+                width: 15px;
+            }
+            &:nth-of-type(3){
+                width: 10px;
+            }
+            &:nth-of-type(4){
+                width: 5px;
+            }
+        }
+    }
+    
+    & .text{
+        padding-top: 15px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

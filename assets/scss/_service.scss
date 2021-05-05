@@ -1,0 +1,452 @@
+/*===========================
+      05.SERVICE css 
+===========================*/
+
+.service-area {}
+
+.service-wrapper {
+    @include box-shadow (0px 0px 30px 0px rgba(0, 0, 0, 0.1));
+}
+
+.single-service {
+    padding: 65px 20px 30px;
+    position: relative;
+
+    &.service-border {
+        border-left: 1px solid $border-color;
+        border-right: 1px solid $border-color;
+        
+        @media #{$md} {
+            border: 0;
+        }
+        @media #{$xs} {
+            border: 0;
+        }
+    }
+
+    & .service-icon {
+        & img {}
+    }
+
+    & .service-content {
+        padding-left: 25px;
+
+        & .service-title {
+            font-size: 18px;
+        }
+
+        & .text {
+            margin-top: 15px;
+        }
+    }
+
+
+    & .shape {
+        position: absolute;
+
+        &.shape-1 {
+            left: 35px;
+            bottom: -50px;
+            @include animation(rotated 15s infinite linear);
+        }
+
+        &.shape-2 {
+            top: 20px;
+            right: 85px;
+            @include animation(animationFramesOne 10s infinite linear);
+        }
+
+        &.shape-3 {
+            left: 100px;
+            bottom: -10px;
+            @include animation(rotated 15s infinite linear);
+        }
+
+        &.shape-4 {
+            left: 30px;
+            top: 10px;
+            @include animation(rotated 15s infinite linear);
+        }
+
+        &.shape-5 {
+            right: 100px;
+            bottom: -40px;
+            @include animation(animationFramesTwo 10s infinite linear);
+        }
+    }
+}
+
+
+@-webkit-keyframes rotated {
+    0% {
+        @include transform(rotate(0));
+    }
+
+    100% {
+        @include transform(rotate(360deg));
+    }
+}
+
+@keyframes rotated {
+    0% {
+        @include transform(rotate(0));
+    }
+
+    100% {
+        @include transform(rotate(360deg));
+    }
+}
+
+
+@keyframes animationFramesOne {
+    0% {
+        @include transform(translate(0px, 0px) rotate(0deg));
+    }
+
+    20% {
+        @include transform(translate(73px, -1px) rotate(36deg));
+    }
+
+    40% {
+        @include transform(translate(141px, 72px) rotate(72deg));
+    }
+
+    60% {
+        @include transform(translate(83px, 122px) rotate(108deg));
+    }
+
+    80% {
+        @include transform(translate(-40px, 72px) rotate(144deg));
+    }
+
+    100% {
+        @include transform(translate(0px, 0px) rotate(0deg));
+    }
+}
+
+
+@-webkit-keyframes animationFramesOne {
+    0% {
+        @include transform(translate(0px, 0px) rotate(0deg));
+    }
+
+    20% {
+        @include transform(translate(73px, -1px) rotate(36deg));
+    }
+
+    40% {
+        @include transform(translate(141px, 72px) rotate(72deg));
+    }
+
+    60% {
+        @include transform(translate(83px, 122px) rotate(108deg));
+    }
+
+    80% {
+        @include transform(translate(-40px, 72px) rotate(144deg));
+    }
+
+    100% {
+        @include transform(translate(0px, 0px) rotate(0deg));
+    }
+}
+
+@keyframes animationFramesTwo {
+    0% {
+        @include transform(translate(0px, 0px) rotate(0deg));
+    }
+
+    20% {
+        @include transform(translate(-73px, 1px) rotate(36deg));
+    }
+
+    40% {
+        @include transform(translate(-141px, -72px) rotate(72deg));
+    }
+
+    60% {
+        @include transform(translate(-83px, -122px) rotate(108deg));
+    }
+
+    80% {
+        @include transform(translate(40px, -72px) rotate(144deg));
+    }
+
+    100% {
+        @include transform(translate(0px, 0px) rotate(0deg));
+    }
+}
+
+@-webkit-keyframes animationFramesTwo {
+    0% {
+        @include transform(translate(0px, 0px) rotate(0deg));
+    }
+
+    20% {
+        @include transform(translate(-73px, 1px) rotate(36deg));
+    }
+
+    40% {
+        @include transform(translate(-141px, -72px) rotate(72deg));
+    }
+
+    60% {
+        @include transform(translate(-83px, -122px) rotate(108deg));
+    }
+
+    80% {
+        @include transform(translate(40px, -72px) rotate(144deg));
+    }
+
+    100% {
+        @include transform(translate(0px, 0px) rotate(0deg));
+    }
+}
+
+
+
+
+
+/*===== OUR SERVICE =====*/
+
+
+.our-services-tab{
+    & .nav{
+        border-bottom: 2px solid $border-color;
+        
+        @media #{$xs} {
+            border-bottom: 0;
+        }
+        @media #{$sm} {
+            border-bottom: 2px solid $border-color;
+        }
+        
+        & .nav-item{
+            @media #{$xs} {
+                width: 50%;
+            }
+            @media #{$sm} {
+                width: auto;
+            }
+            
+            & a{
+                color: $body-color;
+                padding: 17px 30px;
+                display: -webkit-flex;
+                display: -moz-flex;
+                display: -ms-flex;
+                display: -o-flex;
+                display: flex;
+                -ms-flex-align: center;
+                align-items: center;
+                -webkit-align-items: center;
+                position: relative;
+                @include transition(0.3s);
+                
+                @media #{$md} {
+                    padding: 17px 15px;
+                }
+                @media #{$xs} {
+                    padding: 17px 15px;
+                    border-bottom: 2px solid $border-color;
+                }
+                @media #{$sm} {
+                    padding: 17px 10px;
+                    border-bottom: 0;
+                }
+                
+                &::before{
+                    position: absolute;
+                    content: '';
+                    width: 100%;
+                    height: 2px;
+                    background-color: $theme-color;
+                    left: 0;
+                    bottom: -2px;
+                    opacity: 0;
+                    @include transition(0.3s);
+                }
+                
+                & i{
+                    font-size: 50px;
+                    
+                    @media #{$md} {
+                        font-size: 40px;
+                    }
+                    @media #{$xs} {
+                        font-size: 34px;
+                    }
+                    @media #{$sm} {
+                        font-size: 28px;
+                    }
+                }
+                & span{
+                    font-size: 14px;
+                    font-family: $font-2;
+                    font-weight: 500;
+                    padding-left: 15px;
+                    
+                    @media #{$sm} {
+                        padding-left: 10px;
+                    }
+                }
+                
+                &.active{
+                    color: $theme-color;
+                    
+                    &::before{
+                        opacity: 1;
+                    }
+                }
+            }
+        }
+    }
+    
+    & .our-services-content{
+        & .services-title{
+            font-size: 40px;
+            
+            @media #{$xs} {
+                font-size: 22px;
+            }
+            @media #{$sm} {
+                font-size: 26px;
+            }
+            
+            & span{
+                font-weight: 400;
+                display: contents;
+            }
+        }
+        & .text{
+            margin-top: 35px;
+        }
+        
+        & .our-services-progress{
+            & .circles-text{
+                font-size: 24px !important;
+                font-weight: 700;
+                color: $black;
+                font-family: $font-1;
+            }
+            
+            & .progress-content{
+                padding-left: 30px;
+                
+                & .progress-title{
+                    font-size: 18px;
+                }
+            }
+        }
+    }
+}
+
+
+
+/*===== SERVICE 2 =====*/
+
+
+.services-area-2{}
+
+.single-service-2{
+    & .service-icon{
+        margin-top: 5px;
+        
+        & i{
+            width: 50px;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+            border: 1px dashed $theme-color;
+            font-size: 36px;
+            color: $theme-color;
+        }
+    }
+    & .service-content{
+        padding-left: 30px;
+        
+        & .title{
+            & a{
+                font-weight: 600;
+                font-size: 18px;
+                font-family: $font-2;
+                color: $black;
+            }
+        }
+        & .text{
+            padding-top: 20px;
+        }
+    }
+}
+
+
+/*===== SERVICE 3 =====*/
+
+
+.services-area-3{}
+
+.services-3{
+    border-top: 1px solid $border-color;
+}
+
+.single-service-3{
+    & .service-icon{
+        display: inline-block;
+        position: relative;
+        
+        & i{
+            font-size: 40px;
+            color: $white;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            @include transform(translate(-50%, -50%));
+        }
+    }
+    & .service-content{
+        padding-top: 45px;
+        
+        & .service-title{
+            & a{
+                font-size: 24px;
+                font-weight: 700;
+                color: $black;
+                @include transition(0.3s);
+                
+                &:hover{
+                    color: $theme-color;
+                }
+            }
+        }
+        & .text{
+            padding-top: 15px;
+        }
+        & .more{
+            color: $body-color;
+            font-size: 36px;
+            @include transition(0.3s);
+            margin-top: 30px;
+
+            &:hover{
+                color: $theme-color;
+            }
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

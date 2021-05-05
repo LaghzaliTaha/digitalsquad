@@ -2,7 +2,7 @@
 
 
 /*===========================
-       07.TESTIMONIAL css 
+       07.TESTIMONIAL css
 ===========================*/
 
 .testimonial-area{}
@@ -11,14 +11,14 @@
 .testimonial-left-content{
     & .testimonial-line{
         padding-top: 10px;
-        
+
         & li{
             height: 5px;
             background-color: #fde4e1;
             display: inline-block;
             border-radius: 50px;
             margin-right: 3px;
-                        
+
             &:nth-of-type(1){
                 width: 40px;
             }
@@ -46,27 +46,27 @@
     border-radius: 50px;
     max-width: 500px;
     padding-top: 50px;
-    
+
     & .quota{
         position: absolute;
         top: 10px;
         left: 15px;
         @include transform(rotate(180deg));
         opacity: 0.1;
-        
+
         & i{
             font-size: 130px;
             line-height: 95px;
             color: $theme-color;
         }
-        
+
     }
 }
 
 .testimonial-content-wrapper{
     position: relative;
     left: 70px;
-    
+
     @media #{$xs}{
         left: 0;
     }
@@ -76,16 +76,16 @@
     background-color: $white;
     padding: 40px 30px 50px;
     border-radius: 50px;
-    
+
     & .testimonial-text{
         & .text{
-            font-size: 24px;
+            font-size: 16px;
             font-weight: 400;
             font-family: $font-2;
             line-height: 36px;
             color: $black;
             padding-bottom: 25px;
-            
+
             @media #{$xs}{
                 font-size: 18px;
                 line-height: 32px;
@@ -95,7 +95,7 @@
     & .testimonial-author{
         border-top: 1px solid $border-color;
         padding-top: 50px;
-        
+
         & .author-info{
             & .author-image{
                 & img{
@@ -104,7 +104,7 @@
             }
             & .author-name{
                 padding-left: 30px;
-                
+
                 & .name{
                     font-size: 16px;
                     font-weight: 700;
@@ -126,7 +126,7 @@
                 padding-left: 0;
                 padding-top: 15px;
             }
-            
+
             & .star{
                 & li{
                     display: inline-block;
@@ -148,15 +148,15 @@
         position: absolute;
         bottom: 0;
         left: -670px;
-        font-size: 22px;
+        font-size: 16px;
         cursor: pointer;
         color: $body-color;
         @include transition(0.3s);
-        
+
         &:hover{
             color: #000;
         }
-        
+
         &.next {
             left: -635px;
         }

@@ -1,0 +1,10 @@
+GET http://localhost:8080/authors
+
+###
+
+GET http://localhost:8080/authors/1
+
+###
+
+GET http://localhost:8080/articles
+

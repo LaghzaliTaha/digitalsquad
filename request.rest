@@ -1,10 +1,66 @@
+
+GET http://localhost:8080/articles
+
+###
+
+GET http://localhost:8080/articles/60ef47149313000063004a8f
+
+
+###
+POST http://localhost:8080/articles
+Content-Type: application/json
+
+{
+    "title": "khaoula",
+    "body": "elmajnielmajni elmajni elmajni elmajni",
+    "comments": ["comment1","comment1","comment1","comment1","comment1"]
+}
+
+###
+PUT http://localhost:8080/articles/60ec8b47555e00008f0015e8
+content-type: application/json
+
+{
+    "title": "khaoula elmajni",
+    "body": "elmajni elmajni elmajni",
+    "comments": ["comment1","comment1"]
+}
+
+###
+
+DELETE http://localhost:8080/articles/60ec8b47555e00008f0015e8
+###
+
+DELETE http://localhost:8080/articles
+###
+
 GET http://localhost:8080/authors
 
 ###
 
-GET http://localhost:8080/authors/1
+GET http://localhost:8080/authors/60ec93748a480000c5006448
 
 ###
+POST http://localhost:8080/authors
+Content-Type: application/json
 
-GET http://localhost:8080/articles
+{
+    "firstname": "khaoula choukairi",
+    "lastname": "elmajni elmajni elmajni",
+    "email": "elmajnikhaoula@gmail.com",
+    "image" : "http://img.bbystatic.com/BestBuy_US/images/products/4390/43900_sa.jpg"
+}
 
+###
+PUT http://localhost:8080/authors/60ec93748a480000c5006448
+content-type: application/json
+
+{
+    "firstname": "khaoula elmajni",
+    "lastname": "elmajni elmajni elmajni",
+    "email": "elmajnikhaoula@gmail.com",
+    "image" : "http://img.bbystatic.com/BestBuy_US/images/products/4390/43900_sa.jpg"
+}
+###
+
+DELETE http://localhost:8080/authors

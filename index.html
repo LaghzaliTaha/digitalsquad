@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html class="no-js" lang="en">
 
@@ -50,7 +51,7 @@
 
 
     <!--====== PRELOADER PART START ======-->
-
+    
     <div class="preloader">
         <div class="loader">
             <div class="ytp-spinner">
@@ -125,14 +126,17 @@
                             <h1 class="hero-title wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.2s"><b>Your</b> <span>Digital transformation</span> Partner for <b>Growth.</b></h1>
                             <p class="text wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.5s"> <p>helps corporates / startups to  build and launch new products and helps growing companies plug in a ready-to-go dev team and start building.</p>
                             <div class="header-singup wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.8s">
-                                <div class="row">
-                                    <div class="col-lg-3"></div>
-                                <div class="col-lg-6    ">
-                                <input type="text" placeholder="username@yourdomain.com">
-                                <button class="main-btn">Get in touch</button>
-                                </div>
-                                    <div class="col-lg-3"></div>
-                                </div>
+                                <form id="getintouch">
+                                    <div class="row">
+                                     <div class="col-lg-3"></div>
+
+                                        <div class="col-lg-6    ">
+                                            <input type="email" id="email" name="email" placeholder="username@yourdomain.com">
+                                            <button type="submit" name="submit" class="main-btn">Get in touch</button>
+                                         </div>
+                                      <div class="col-lg-3"></div>
+                                    </div>
+                               </form>
                             </div>
                         </div> <!-- header hero content -->
                     </div>
@@ -803,6 +807,10 @@
 
     <!--====== Main js ======-->
     <script async src="assets/js/main.js" ></script>
+    <!--====== XMLHttpRequest mailing js ======-->
+    <script src="mailing.js"></script>
+    <!--====== sweetalert  ======-->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 </body>
 

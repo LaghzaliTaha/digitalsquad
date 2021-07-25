@@ -8,7 +8,7 @@ use \Psr\Http\Message\ResponseInterface as Response;
 
 require 'vendor/autoload.php';
 
-
+header('Content-type:application/json;charset=utf-8');
 $app = new \Slim\App;
 
 $app->get('/', function ($request, $response, $args) {
@@ -36,12 +36,14 @@ $app->get('/articles', function ($request, $response, $args=[]) {
     $articles = new Article();
     $response = $articles->getAllArticles();
     echo nl2br("\nList of articles:\n");
-    foreach($response as $article) {
+    /*foreach($response as $article) {
         echo nl2br($article->_id.' '.$article->title.' '.$article->body.' '.$article->date.' article has following comments :'."\n");
         foreach ($article->comments as $comment) {
             echo nl2br($comment."\n");
         }
-    }
+    }*/
+    
+    echo json_encode(iterator_to_array($response));
 });
 
 // Retrieve user with id 
@@ -92,11 +94,14 @@ $app->get('/authors', function ($request, $response, $args=[]) {
 
     $authors = new Author();
     $response = $authors->getAllAuthors();
-    echo nl2br("\nList of articles:\n");
-    foreach($response as $author) {
+    //echo nl2br("\nList of articles:\n");
+    /*foreach($response as $author) {
         echo nl2br($author->_id.' '.$author->firstname.' '.$author->lastname.' '.$author->email.' '.$author->image."\n");
         
-    }
+    }*/
+
+    echo nl2br("\nList of authors:\n");
+    echo json_encode(iterator_to_array($response));
 });
 
 // Retrieve user with id 
@@ -106,7 +111,7 @@ $app->get('/authors/{id}', function (Request $request, Response $response, array
 
     echo nl2br("\n user serching for:\n");
     echo nl2br($response->_id.' '.$response->firstname.' '.$response->lastname.' '.$response->email.' '.$response->image."\n");
-        
+    echo json_encode($response);
 });
 
 //add new article

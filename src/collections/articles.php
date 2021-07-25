@@ -1,6 +1,6 @@
 <?php
 
-
+header('Content-type:application/json;charset=utf-8');
 class Article{
     private $con;
     private $collection = 'articles';

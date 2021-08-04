@@ -1,3 +1,3 @@
 # digitalsquad
-digitalsquad website (version alpha)
+digital squad website (version alpha)
 

@@ -1,3 +1,4 @@
+const msg_error="Something went wrong!";
 document.getElementById("getintouch").addEventListener("submit", function(e) {
     e.preventDefault();
    var data =new FormData(this);
@@ -23,7 +24,7 @@ document.getElementById("getintouch").addEventListener("submit", function(e) {
                 console.log(res.msg);
              }
       }else if(this.readyState == 4 ){
-        swal("Oops!", "Something went wrong!", "error");
+        swal("Oops!", msg_error, "error");
 
       }
     };

@@ -1,6 +1,12 @@
 
 <?php require_once 'validate.php'; ?>
- <?php   use PHPMailer\PHPMailer\PHPMailer;
+ <?php   
+
+const wrong_email ="Please Type Correct Email";
+const empty_email = "Please enter your email "; 
+const sent_email="Email is sent!";
+const try_again="Something is wrong  try again";
+    use PHPMailer\PHPMailer\PHPMailer;
     if (isset($_POST['email']) && !empty($_POST['email'])) {
        $email = $_POST['email'];
       
@@ -24,28 +30,26 @@
             if(valideemail($email))
             {
                             $mail->setFrom($email,$email);
-                            $mail->addAddress("digitalsquad648@gmail.com"); //enter you email address
+                            $mail->addAddress("digitalsquad648@gmail.com"); 
                             $mail->Subject = "New Contact";
-                            $mail->Body = "nabil here";
                             $mail->msgHTML(file_get_contents('msgmail.html'), dirname(__FILE__));
-
                             if ($mail->send()) {
                                 $success = 1;
-                            $msg= "Email is sent!";
+                            $msg=sent_email;
                             } else {
                                 $success =0;
-                            $msg= "Something is wrong:" . $mail->ErrorInfo;
+                            $msg= try_again ;
                             }  
             }else
             {
                      $success =0;
-                     $msg="Please Type Correct Email";
+                     $msg=wrong_email ;
              
             } 
         }
         else
         {    $success =0;
-             $msg="Please enter your email ";
+             $msg=empty_email;
         }
     
      
@@ -53,5 +57,5 @@
        
 
         $res =["success" => $success , "msg" => $msg] ; 
-        echo json_encode($res);  //  }
+        echo json_encode($res);  
 ?>

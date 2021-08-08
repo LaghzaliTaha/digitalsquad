@@ -31,14 +31,17 @@ const try_again="Something is wrong  try again";
             {
                             $mail->setFrom($email,$email);
                             $mail->addAddress("digitalsquad648@gmail.com"); 
-                            $mail->Subject = "New Contact";
-                            $mail->msgHTML(file_get_contents('msgmail.html'), dirname(__FILE__));
+                            $mail->Subject = "Demande de contact";
+                            $userName=explode('@' ,$email);
+                            $body = file_get_contents('msgmail.html');
+                            $body = str_replace('$userName', $userName[0], $body);
+                            $mail->MsgHTML($body, dirname(__FILE__));    
                             if ($mail->send()) {
-                                $success = 1;
-                            $msg=sent_email;
+                                    $success = 1;
+                                    $msg=sent_email;
                             } else {
-                                $success =0;
-                            $msg= try_again ;
+                                    $success =0;
+                                    $msg= try_again ;
                             }  
             }else
             {

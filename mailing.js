@@ -8,7 +8,7 @@ document.getElementById("getintouch").addEventListener("submit", function(e) {
       if (this.readyState == 4 && this.status == 200)
       {
 
-            console.log(this.response);
+            
             var res=this.response;
              if(res.success)
              {    swal({
@@ -16,12 +16,12 @@ document.getElementById("getintouch").addEventListener("submit", function(e) {
                 text: res.msg,
                 icon: "success",
               });
-                 console.log(res.msg);
+               
              }else
              {
                 swal("Oops!",res.msg, "error");
 
-                console.log(res.msg);
+               
              }
       }else if(this.readyState == 4 ){
         swal("Oops!", msg_error, "error");

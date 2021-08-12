@@ -13,7 +13,9 @@ const try_again="Something is wrong  try again";
         require_once "PHPMailer/PHPMailer.php";
         require_once "PHPMailer/SMTP.php";
         require_once "PHPMailer/Exception.php";
-
+        header("Access-Control-Allow-Origin: *");
+        header("Access-Control-Allow-Methods: PUT, GET, POST");
+        header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept");       
         $mail = new PHPMailer();
 
         //SMTP Settings
@@ -22,8 +24,17 @@ const try_again="Something is wrong  try again";
         $mail->SMTPAuth = true;
         $mail->Username = 'digitalsquad648@gmail.com';
         $mail->Password = 'Digitalsquad648@@';
-        $mail->Port = 465;
-        $mail->SMTPSecure = "ssl";
+
+    
+        $mail->Port =587;
+        $mail->SMTPSecure = "tls"; 
+        $mail->SMTPOptions = array(
+            'ssl' => array(
+            'verify_peer' => false,
+            'verify_peer_name' => false,
+            'allow_self_signed' => true
+            )
+            );   
 
         //Email Settings
           $mail->isHTML(true);
@@ -41,6 +52,7 @@ const try_again="Something is wrong  try again";
                                     $msg=sent_email;
                             } else {
                                     $success =0;
+                                    
                                     $msg= try_again ;
                             }  
             }else

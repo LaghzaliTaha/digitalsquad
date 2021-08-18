@@ -9,12 +9,24 @@ use \Psr\Http\Message\ResponseInterface as Response;
 require '../../vendor/autoload.php';
 
 header('Content-type:application/json;charset=utf-8');
+
 $app = new \Slim\App([
     'settings' => [
         'displayErrorDetails' => true
     ]
     ]);
-
+    $app->options('/{routes:.+}', function ($request, $response, $args) {
+        return $response;
+    });
+    
+    $app->add(function ($req, $res, $next) {
+        $response = $next($req, $res);
+        return $response
+                ->withHeader('Access-Control-Allow-Origin', 'http://localhost:7882')
+                ->withHeader('Access-Control-Allow-Headers', 'X-Requested-With, Content-Type, Accept, Origin, Authorization')
+                ->withHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH, OPTIONS');
+    });
+   
 $app->get('/', function ($request, $response, $args) {
     
     $response->getBody()->write("<h1>hello world</h1>");
@@ -148,5 +160,8 @@ $app->delete('/authors', function ($request, $response, $args) {
 
 
 
-
+$app->map(['GET', 'POST', 'PUT', 'DELETE', 'PATCH'], '/{routes:.+}', function($req, $res) {
+    $handler = $this->notFoundHandler; // handle using the default Slim page not found handler
+    return $handler($req, $res);
+});
 $app->run();

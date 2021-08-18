@@ -32,7 +32,7 @@ private static $installed = array (
     'aliases' => 
     array (
     ),
-    'reference' => 'f2e7e0fc80c232f8466e816d92ef7703156e8f66',
+    'reference' => 'eb69e3856fd016432365b22ebb5979a84b133591',
     'name' => '__root__',
   ),
   'versions' => 
@@ -44,7 +44,7 @@ private static $installed = array (
       'aliases' => 
       array (
       ),
-      'reference' => 'f2e7e0fc80c232f8466e816d92ef7703156e8f66',
+      'reference' => 'eb69e3856fd016432365b22ebb5979a84b133591',
     ),
     'fig/http-message-util' => 
     array (

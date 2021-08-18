@@ -15,16 +15,15 @@ class Author{
 
   //add new author
   function addAuthor($firstname,$lastname,$email,$image){
-    $user = array(
-        "firstname" => $firstname,
-        "lastname" => $lastname,
-        "email" => $email,
-        "image" => $image
-    );
+    
+ 
 
     try{
-        $inserts = new MongoDB\Driver\BulkWrite();
-        $inserts->insert($user);
+        $inserts = new MongoDB\Driver\BulkWrite;
+        $inserts->insert(  [ 'firstname' => $firstname,
+        'lastname' => $lastname,
+        'email' => $email,
+        'image' => $image] );
         $this->con->executeBulkWrite("digitalsquad.authors", $inserts);
         echo "\ninserts passed successfully\n";
     }catch (MongoDBDriverExceptionException $e) {
@@ -43,50 +42,51 @@ class Author{
     $all_authors = $this->con->executeQuery("digitalsquad.authors", $read);
     
     return $all_authors;
-    /*echo nl2br("\nList of authors:\n");
-    echo json_encode(iterator_to_array($all_authors));*/
+  
   }
 
     //Read Single Record ==> search for an author by name based on filter
-  function getAuthorById($id){
+  function getAuthorById($id1){
 
-$filter = ['_id' => $id];
-$option = [];
-$read = new MongoDB\Driver\Query($filter, $option);
-$single_author = $this->con->executeQuery("digitalsquad.authors", $read);
-return $single_author;
+    $id           = new \MongoDB\BSON\ObjectId($id1);
+    $filter      = ['_id' => $id];
+    $options = [];
+    $read = new MongoDB\Driver\Query($filter, $options);
+    $cursor =$this->con->executeQuery("digitalsquad.authors", $read);
+    return $cursor;
   }
 
    //Update Single Record
-  function updateAuthor($id,$firstname,$lastname,$email,$image){
+  function updateAuthor($id1,$firstname,$lastname,$email,$image){
      
-$updates = new MongoDB\Driver\BulkWrite();
+        $updates = new MongoDB\Driver\BulkWrite();
+        $id           = new \MongoDB\BSON\ObjectId($id1);
+        $updates->update(
+            ['_id' => $id],
+            ['$set' => ['firstname' => $firstname,
+            'lastname' => $lastname,
+            'email' => $email,
+            'image' => $image]],
+           // ['multi' => true, 'upsert' => false]
+        );
 
-$updates->update(
-    ['firstname' => 'taha'],
-    ['$set' => ['firstname' => 'khaoula1',
-    'lastname' => $lastname,
-    'email' => $email,
-    'image' => $image]],
-    ['multi' => true, 'upsert' => false]
-);
+        $result = $this->con->executeBulkWrite("digitalsquad.authors", $updates);
 
-$result = $this->con->executeBulkWrite("digitalsquad.authors", $updates);
-
-if($result) {
-	echo nl2br("\nRecord updated successfully \n");
-}else {
-    echo nl2br("\nRecord not updated \n");
-}
+        if($result) {
+            echo nl2br("\nRecord updated successfully \n");
+        }else {
+            echo nl2br("\nRecord not updated \n");
+        }
 }
 
 
 //Delete Single/Multiple Records
-function deleteAuthor($id){
+function deleteAuthor($id1){
 $delete = new MongoDB\Driver\BulkWrite();
+$id           = new \MongoDB\BSON\ObjectId($id1);
+$filter      = ['_id' => $id];
 $delete->delete(
-    ['_id' => $id],
-    ['limit' => 1]
+    $filter 
 );
 
 $result = $this->con->executeBulkWrite("digitalsquad.authors", $delete);
@@ -103,14 +103,13 @@ if($result) {
 function deleteAuthors(){
     $delete = new MongoDB\Driver\BulkWrite();
     $delete->delete(
-        ['_id' => ''],
-        ['limit' => 100]
+       []
     );
     
     $result = $this->con->executeBulkWrite("digitalsquad.authors", $delete);
     
     if($result) {
-        echo nl2br("Record deleted successfully \n");
+        echo nl2br(" ALL Record deleted successfully \n");
     }else {
         echo nl2br("\nRecord not deleted \n");
     }

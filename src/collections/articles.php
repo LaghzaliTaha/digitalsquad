@@ -13,17 +13,10 @@ class Article{
   }
 
   function insertArticle($title,$body,$comments){
-    $article = array(
-        "date" => date('l d m Y h:i:s'),
-        "title" => $title,
-        "body" => $body,
-        "comments" => $comments
-    );
-    
 
     try{
-        $inserts = new MongoDB\Driver\BulkWrite();
-        $inserts->insert($article);
+        $inserts = new MongoDB\Driver\BulkWrite;
+        $inserts->insert(['date' => date('l d m Y h:i:s'), 'title' => $title, 'body' => $body,'comments' => $comments]);
         $this->con->executeBulkWrite("digitalsquad.articles", $inserts);
         echo "\ninserts passed successfully\n";
     }catch (MongoDBDriverExceptionException $e) {
@@ -46,13 +39,15 @@ class Article{
     }
 
     //Read Single Record ==> search for an article by _id
-    function getArticleById($id){
-        $filter = ['_id' => $id];
-        $option = ['limit' => 1];
-        $read = new MongoDB\Driver\Query($filter, $option);
-        $single_article = $this->con->executeQuery("digitalsquad.articles", $read);
+    function getArticleById($id1){
+        $id           = new \MongoDB\BSON\ObjectId($id1);
+        $filter      = ['_id' => $id];
+        $options = [];
+        $read = new MongoDB\Driver\Query($filter, $options);
+        $cursor =$this->con->executeQuery("digitalsquad.articles", $read);
+ 
 
-        return $single_article;
+        return $cursor;
     }
 
     //Read Single Record ==> search for an article by title 
@@ -74,21 +69,19 @@ class Article{
 
 
     //Update Single Record
-    function updateArticle($id,$title,$body,$comments){
+    function updateArticle($id1,$title,$body,$comments){
     $updates = new MongoDB\Driver\BulkWrite();
+    $id           = new \MongoDB\BSON\ObjectId($id1);
+   
     //multiple updates
-    $updates->update(
-        ['title' => 'Lorem ipsum'],
+    
+   $updates->update(['_id' => $id], 
         ['$set' => ['title' => $title,
         'body' => $body,
         'comments' => $comments]],
-        ['multi' => true, 'upsert' => false]
+      //  ['multi' => true, 'upsert' => false]
     );
-    /*$updates->update(
-        ['title' => 'lorem ipsum1'],
-        ['$set' => ['title' => 'digital squad']],
-        ['multi' => true, 'upsert' => false]
-    );*/
+   
 
     $result = $this->con->executeBulkWrite("digitalsquad.articles", $updates);
 
@@ -99,11 +92,13 @@ class Article{
 
 
     //Delete Single/Multiple Records
-    function deleteArticle($id){
+    function deleteArticle($id1){
     $delete = new MongoDB\Driver\BulkWrite();
+    $id           = new \MongoDB\BSON\ObjectId($id1);
+    $filter      = ['_id' => $id];
+ 
     $delete->delete(
-        ['title' => 'Lorem ipsum1'],
-        ['limit' => 1]
+        $filter 
     );
 
     $result = $this->con->executeBulkWrite("digitalsquad.articles", $delete);
@@ -116,15 +111,13 @@ class Article{
     //Delete Single/Multiple Records
     function deleteArticles(){
         $delete = new MongoDB\Driver\BulkWrite();
-        $delete->delete(
-            ['title' => ''],
-            ['limit' => 100]
+        $delete->delete([]
         );
     
         $result = $this->con->executeBulkWrite("digitalsquad.articles", $delete);
     
         if($result) {
-            echo nl2br("Records are deleted successfully \n");
+            echo nl2br( " ALLRecords are deleted successfully \n");
         }
         }
 

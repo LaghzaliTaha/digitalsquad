@@ -2,7 +2,4 @@
 deployment:
   tasks:
     - export DEPLOYPATH=/home/digitsqu/public_html/
-    - /bin/cp index.html $DEPLOYPATH
-    - /bin/cp style.css $DEPLOYPATH
-    - /bin/cp -r src $DEPLOYPATH
-    - /bin/cp -r assets $DEPLOYPATH
+    - /bin/cp -fr * $DEPLOYPATH

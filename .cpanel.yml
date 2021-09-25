@@ -4,5 +4,5 @@ deployment:
     - export DEPLOYPATH=/home/digitsqu/public_html/
     - /bin/cp index.html $DEPLOYPATH
     - /bin/cp style.css $DEPLOYPATH
-    - /bin/cp -R src $DEPLOYPATH
-    - /bin/cp -R assets $DEPLOYPATH
+    - /bin/cp -r src $DEPLOYPATH
+    - /bin/cp -r assets $DEPLOYPATH

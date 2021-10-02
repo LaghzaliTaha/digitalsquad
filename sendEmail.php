@@ -21,7 +21,7 @@ const try_again="Something is wrong  try again";
         //SMTP Settings
         $mail->isSMTP();
         $mail->Host = "smtp.elasticemail.com";
-        $mail->SMTPAuth = true;
+        $mail->SMTPAuth = false;
         $mail->Username = 'laghzalitaha0@gmail.com';
         $mail->Password = '5EC801332BE1910DD92D9FD8A31596EFA31C';
 

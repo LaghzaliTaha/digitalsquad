@@ -45,7 +45,7 @@ const try_again="Something is wrong  try again";
                             } else {
                                     $success =0;
 
-                                    $msg= try_again ;
+                                    $msg= "Something is wrong:" . $mail->ErrorInfo;
                             }
             }else
             {

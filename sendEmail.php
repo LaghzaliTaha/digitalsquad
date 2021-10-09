@@ -18,7 +18,7 @@ try{
 		'fromName' => 'digitalsquad.ma',
 		'apikey' => '6B10CBC949516C30802AFFF1A9AFDAE1793A3958A16B8CA9AF803299B68AB5E6B8C5A591CEAD57525F91EDDFE0580BA8',
 		'subject' => 'Your Subject',
-		'to' => 'laghzalitaha0@gmail.com',
+		'to' => 'mrtahalz@gmail.com',
 		'bodyHtml' => '<h1>Html Body</h1>',
 		'bodyText' => 'Text Body',
 		'isTransactional' => false);

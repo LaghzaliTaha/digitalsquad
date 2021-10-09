@@ -8,27 +8,27 @@ document.getElementById("getintouch").addEventListener("submit", function(e) {
       if (this.readyState == 4 && this.status == 200)
       {
 
-            
+
             var res=this.response;
-             if(res.success)
+             if(res.message)
              {    swal({
                 title: "Good job!",
                 text: res.msg,
                 icon: "success",
               });
-               
+
              }else
              {
                 swal("Oops!",res.msg, "error");
 
-               
+
              }
       }else if(this.readyState == 4 ){
         swal("Oops!", msg_error, "error");
 
       }
     };
-    xhr.open("post" ,"sendEmail.php",true);
+    xhr.open("get" ,"https://harmony-digital.herokuapp.com/api/mail",true);
     xhr.responseType="json";
     xhr.send(data);
    return false;

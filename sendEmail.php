@@ -10,59 +10,38 @@ const try_again="Something is wrong  try again";
     if (isset($_POST['email']) && !empty($_POST['email'])) {
        $email = $_POST['email'];
 
-        require_once "PHPMailer/PHPMailer.php";
-        require_once "PHPMailer/SMTP.php";
-        require_once "PHPMailer/Exception.php";
-        header("Access-Control-Allow-Origin: *");
-        header("Access-Control-Allow-Methods: PUT, GET, POST");
-        header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept");
-        $mail = new PHPMailer();
+$url = 'https://api.elasticemail.com/v2/email/send';
 
-        //SMTP Settings
-        $mail->isSMTP();
-        $mail->Host = "smtp.elasticemail.com";
-        $mail->SMTPAuth = true;
-        $mail->Username = 'laghzalitaha0@gmail.com';
-        $mail->Password = '5EC801332BE1910DD92D9FD8A31596EFA31C';
+try{
+        $post = array('from' => 'youremail@yourdomain.com',
+		'fromName' => 'digitalsquad.ma',
+		'apikey' => '6B10CBC949516C30802AFFF1A9AFDAE1793A3958A16B8CA9AF803299B68AB5E6B8C5A591CEAD57525F91EDDFE0580BA8',
+		'subject' => 'Your Subject',
+		'to' => 'laghzalitaha0@gmail.com',
+		'bodyHtml' => '<h1>Html Body</h1>',
+		'bodyText' => 'Text Body',
+		'isTransactional' => false);
 
+		$ch = curl_init();
+		curl_setopt_array($ch, array(
+            CURLOPT_URL => $url,
+			CURLOPT_POST => true,
+			CURLOPT_POSTFIELDS => $post,
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_HEADER => false,
+			CURLOPT_SSL_VERIFYPEER => false
+        ));
 
-        $mail->Port =2525;
+        $result=curl_exec ($ch);
+        curl_close ($ch);
 
-        //Email Settings
-          $mail->isHTML(true);
-            if(valideemail($email))
-            {
-                            $mail->setFrom($email,$email);
-                            $mail->addAddress("digitalsquad648@gmail.com");
-                            $mail->Subject = "Demande de contact";
-                            $userName=explode('@' ,$email);
-                            $body = file_get_contents('msgmail.html');
-                            $body = str_replace('$userName', $userName[0], $body);
-                            $mail->MsgHTML($body, dirname(__FILE__));
-                            if ($mail->send()) {
-                                    $success = 1;
-                                    $msg=sent_email;
-                            } else {
-                                    $success =0;
-
-                                    $msg= "Something is wrong:" . $mail->ErrorInfo;
-                            }
-            }else
-            {
-                     $success =0;
-                     $msg=wrong_email ;
-
-            }
-        }
-        else
-        {    $success =0;
-             $msg=empty_email;
-        }
+        echo $result;
+}
+catch(Exception $ex){
+	echo $ex->getMessage();
+}
 
 
-
-
-
-        $res =["success" => $success , "msg" => $msg] ;
+        $res =["success" => $result , "msg" => $msg] ;
         echo json_encode($res);
 ?>

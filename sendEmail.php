@@ -9,6 +9,7 @@ const try_again="Something is wrong  try again";
     use PHPMailer\PHPMailer\PHPMailer;
     if (isset($_POST['email']) && !empty($_POST['email'])) {
        $email = $_POST['email'];
+       }
 
 $url = 'https://api.elasticemail.com/v2/email/send';
 

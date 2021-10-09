@@ -1,7 +1,6 @@
 const msg_error="Something went wrong!";
 document.getElementById("getintouch").addEventListener("submit", function(e) {
     e.preventDefault();
-   var data =new FormData(this);
     var xhr=new XMLHttpRequest();
     xhr.onreadystatechange=function()
     {
@@ -26,9 +25,10 @@ document.getElementById("getintouch").addEventListener("submit", function(e) {
 
       }
     };
-    xhr.open("get" ,"https://harmony-digital.herokuapp.com/api/mail",true);
+    xhr.open("post" ,"https://harmony-digital.herokuapp.com/api/mail",true);
     xhr.responseType="json";
-    xhr.send(data);
+    xhr.setRequestHeader("Content-type", "application/json");
+    xhr.send(JSON.stringify({email:document.getElementById('email').value}));
    return false;
 });
 

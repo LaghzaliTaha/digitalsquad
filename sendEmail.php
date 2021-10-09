@@ -6,7 +6,7 @@ const wrong_email ="Please Type Correct Email";
 const empty_email = "Please enter your email ";
 const sent_email="Email is sent!";
 const try_again="Something is wrong  try again";
-    use PHPMailer\PHPMailer\PHPMailer;
+
     if (isset($_POST['email']) && !empty($_POST['email'])) {
        $email = $_POST['email'];
        }
@@ -14,7 +14,7 @@ const try_again="Something is wrong  try again";
 $url = 'https://api.elasticemail.com/v2/email/send';
 
 try{
-        $post = array('from' => 'youremail@yourdomain.com',
+        $post = array('from' => 'laghzalitaha0@gmail.com',
 		'fromName' => 'digitalsquad.ma',
 		'apikey' => '6B10CBC949516C30802AFFF1A9AFDAE1793A3958A16B8CA9AF803299B68AB5E6B8C5A591CEAD57525F91EDDFE0580BA8',
 		'subject' => 'Your Subject',

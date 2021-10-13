@@ -40,7 +40,7 @@ document.getElementById("getintouch").addEventListener("submit", function(e) {
         "    <div class=\"item-5\"></div>\n" +
         "  </div>\n" +
         "</div>" );
-    $( '.main-btn' ).replaceWith( "" );
+    $( '#get-in-touch' ).replaceWith( "" );
    return false;
 });
 

@@ -1,3 +1,14 @@
 #slogo {
     font-size: 40px;
 }
+.auditingImage{
+    width: 450px!important;
+    height: 200px!important;
+}
+.cloudImage{
+    width: 450px!important;
+    height: 270px!important;
+}
+.outsourcingImage{
+    height: 280px!important;
+}

@@ -48,7 +48,7 @@ h5,
 h6 {
   font-family: "Poppins", sans-serif;
   font-weight: 800;
-  color: #404040;
+  color: #f14836;
   margin: 0px; }
 
 h1 {
@@ -808,6 +808,12 @@ p {
         line-height: 46px;
         margin-top: 0; } }
 
+
+.clients-container {
+  display: flex;
+  justify-content: center;
+  margin: 64px;
+}
 /*===========================
         03.ABOUT css
 ===========================*/
@@ -1619,11 +1625,14 @@ p {
   border-top: 1px solid #dedede4f; }
   .brand-wrapper .single-brand {
     float: left;
+    margin: 0 24px;
     width: 20%;
     text-align: center; }
     @media (max-width: 767px) {
       .brand-wrapper .single-brand {
-        width: 50%; } }
+        width: 50%;
+        margin: 50px auto;
+      ; } }
 
 /*===========================
          09.BL0G css

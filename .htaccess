@@ -1,21 +1,31 @@
+RewriteOptions inherit
+
 RewriteEngine on
 
 # Redirection de /tva/ vers https://calcul-comptable.vercel.app/
-RewriteRule ^tva$ https://calcul-comptable.vercel.app/$1 [P,L]
-
-# Les lignes suivantes sont liées à la gestion des requêtes vers index.php, et à la mise en cache des fichiers statiques.
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteRule . index.php [L]
+RewriteRule ^tva/(.*)$ https://calcul-comptable.vercel.app/$1 [P,L]
 
 <IfModule mod_headers.c>
-    # Mise en cache d'une semaine pour les images
+    # Cache images for one year
     <FilesMatch "\.(jpg|jpeg|png|gif|swf)$">
         Header set Cache-Control "max-age=31536000, public"
     </FilesMatch>
 
-    # Mise en cache d'une semaine pour les fichiers JS, CSS, SWF
+    # Cache JS and CSS for one year
     <FilesMatch "\.(js|css|swf)$">
         Header set Cache-Control "max-age=31536000"
     </FilesMatch>
 </IfModule>
+
+# Redirect non-www to www (optional)
+RewriteCond %{HTTP_HOST} ^digitalsquad\.ma$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.digitalsquad\.ma$
+RewriteRule ^index\.html$ https://digitalsquad.ma/ [R=301,L]
+
+# Uncomment the following lines if you want to redirect the root domain
+# to another subdomain or URL.
+# RewriteCond %{HTTP_HOST} ^.*$
+# RewriteRule ^/?$ "https://accounting.digitalsquad.ma/" [R=301,L]
+RewriteCond %{HTTP_HOST} ^digitalsquad\.ma$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.digitalsquad\.ma$
+RewriteRule ^tva$ "https\:\/\/digitalsquad\.ma\/tva\.html" [R=301,L]
